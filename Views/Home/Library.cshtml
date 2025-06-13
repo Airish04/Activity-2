@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+	ViewData["Title"] = "Library";
+}
+
+@model List<Activity_2.Models.Library>
+
+<div class="text-center">
+	<h1 class="display-4">Library</h1>
+	<p>Explore a collection of poems and stories.</p>
+
+    <div class="row">
+        @foreach (var entry in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@entry.Title</h5>
+                        <p class="card-text text-truncate" style="max-height: 6em; overflow: hidden;">
+                            @entry.Content
+                        </p>
+                        <a asp-action="Details" asp-route-id="@entry.Id" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
